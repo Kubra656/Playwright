@@ -61,4 +61,24 @@ git push -u origin main
 ## Push an existing repository 
 git remote add origin https://github.com/Kubra656/Playwright.git
 git branch -M main
+git status
+git add .
+git commit -m "message"
 git push -u origin main
+
+## Configuring dotnenv file
+npm install dotenv --save
+Check dotenv in package.json. Under dependencies dot env will be added
+
+Paste inside the playwright.config.ts file
+ if (!process.env.NODE_ENV) {
+  require("dotenv").config({ path: `${__dirname}//src//config//.env` });
+} else {
+  require("dotenv").config({
+    path: `${__dirname}//src//config//.env.${process.env.NODE_ENV}`,
+  });
+}
+
+Create .env file with userid and password under config file and write tests(Refer login using dotenv file)
+
+To find the value in NODE_ENV --> echo %NODE_ENV%

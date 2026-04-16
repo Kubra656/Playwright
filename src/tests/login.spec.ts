@@ -9,10 +9,6 @@ test('Login to KDP', async ({ page }) => {
   //await SignIn.enterPassword('testtest');
   await SignIn.enterEmailId(process.env.userid!);
   await SignIn.enterPassword(process.env.password!);
-  //await SignIn.enterEmailId('sakeenathulkubrak@gmail.com');
-  //await SignIn.enterPassword('testtest');
-  await SignIn.enterEmailId(process.env.userid!);
-  await SignIn.enterPassword(process.env.password!);
   const BookShelf = new bookShelf(page);
   await BookShelf.verifyBookshelfPageIsLoaded();
 });

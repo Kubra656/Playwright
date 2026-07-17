@@ -49,4 +49,4 @@ test.describe('Details Page tests', ()=>{
     })
 })
 
-}
+} 

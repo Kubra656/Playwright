@@ -23,7 +23,7 @@ test.describe('Bookshelf tests',()=>{
         await BookShelf.clickCreateNewTitle();
     })
 
-    test.only('Verify whether help links navigate properly', async() =>{
+    test('Verify whether help links navigate properly', async() =>{
         await BookShelf.checkLinkNavigation();
     })
 

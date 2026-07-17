@@ -1,5 +1,6 @@
 import { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
+import { BookshelfPageLocators } from "../locators/bookshelfPageLocators";
 export default class bookShelf {
     private readonly bookshelfHeadingLocator = '.a-text-center.bookshelf-header';
     private readonly bookshelfHeadingtext = 'Create. Manage. Publish.';
@@ -43,9 +44,24 @@ export default class bookShelf {
         await expect(childPage).toHaveURL(this.helpLink);
         await this.page.bringToFront();
         await expect(this.page).toHaveURL(/en_US\/bookshelf/);
-       
-
     }
+
+    async searchATitle(bookTitle: string){
+        await this.page.locator(BookshelfPageLocators.searchBook).fill(bookTitle);
+        await this.page.locator(BookshelfPageLocators.searchButton).click();
+    }
+
+    async ellipsisButton(bookId: string) {
+    return this.page.locator(
+      `#zme-indie-bookshelf-dual-print-actions-draft-book-actions-${bookId}-other-actions`
+    );
+    }
+
+    async editContent(titleId: string){
+        return this.page.locator(`#print_edit_content-${titleId}`);
+    }
+
+
 
 
 }
